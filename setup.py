@@ -22,7 +22,7 @@ response = session.get('https://www.hackthebox.eu/login', headers=headers)
 cookie = session.cookies.get_dict()
 html = BeautifulSoup(response.content, 'lxml')
 token = html.body.find('input', attrs={'type':'hidden'})['value']
-email = 'dutyfruit1@outlook.com'#raw_input("Email: ")
+email = raw_input("Email: ")
 password = getpass("password: ")
 session2 = requests.Session()
 response2 = session2.post('https://www.hackthebox.eu/login', data={"_token":token, "email":email, "password":password, "remember":"on"}, cookies=cookie, headers=headers)
